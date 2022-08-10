@@ -41,23 +41,25 @@ export function findIntersection(
 
     // intersection of lines is not a point on segment P0 + s * D0
     if (s < 0 || s > 1) return 0;
+
     const t = (ex * vay - ey * vax) / kross;
 
     // intersection of lines is not a point on segment P1 + t * D1
     if (t < 0 || t > 1) return 0;
 
+    const res0 = result[0];
     // intersection of lines is a point on each segment
     if (s === 0 || s === 1) {
       // on an endpoint of line segment a
-      result[0][0] = p0x + s * vax;
-      result[0][1] = p0y + s * vay;
+      res0[0] = p0x + s * vax;
+      res0[1] = p0y + s * vay;
     } else if (t === 0 || t === 1) {
       // on an endpoint of line segment b
-      result[0][0] = p1x + t * vbx;
-      result[0][1] = p1y + t * vby;
+      res0[0] = p1x + t * vbx;
+      res0[1] = p1y + t * vby;
     } else {
-      result[0][0] = p0x + s * vax;
-      result[0][1] = p0y + s * vay;
+      res0[0] = p0x + s * vax;
+      res0[1] = p0y + s * vay;
     }
     return 1;
   }
@@ -111,10 +113,16 @@ export function findIntersection(
     }
   }
 
-  for (let i = 0; i < imax; i++) {
-    const w = i === 0 ? w0 : w1;
-    result[i][0] = p0x + w * vax;
-    result[i][1] = p0y + w * vay;
+  if (imax > 0) {
+    const res0 = result[0];
+    res0[0] = p0x + w0 * vax;
+    res0[1] = p0y + w0 * vay;
+
+    if (imax === 2) {
+      const res1 = result[1];
+      res1[0] = p0x + w1 * vax;
+      res1[1] = p0y + w1 * vay;
+    }
   }
 
   return imax;
