@@ -12,10 +12,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Generate Demo
-        run: yarn generate
+        run: npm run demo
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
