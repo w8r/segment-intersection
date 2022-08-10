@@ -34,3 +34,7 @@ line {
 .hidden {
   display: none;
 }
+
+.intersection {
+  fill: rgba(205, 46, 55, 0.85);
+}

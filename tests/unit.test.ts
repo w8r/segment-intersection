@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { findIntersection, ii, result } from '../src';
+import { findIntersection, result } from '../src';
 
 describe('segment intersection', () => {
   it('should return 0 for no intersections: 45 degrees parallel', () => {
@@ -117,16 +117,14 @@ describe('segment intersection', () => {
 
   it('normal values', () => {
     const isect = findIntersection(60, 180, 920, 180, 400, 140, 400, 260);
-
-    console.log(ii([400, 100], [320, 180], [500, 280], [80, 120]));
     expect(isect).toBe(1);
     expect(result[0]).toStrictEqual([400, 180]);
   });
 
   it('normal values 2', () => {
     const isect = findIntersection(820, 200, 620, 280, 620, 200, 820, 280);
-    console.log(ii([820, 200], [620, 280], [620, 200], [820, 280]));
     expect(isect).toBe(1);
+    expect(result[0]).toStrictEqual([720, 240]);
   });
 
   it('edge cases', () => {

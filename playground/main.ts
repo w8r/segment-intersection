@@ -2,11 +2,19 @@ import './style.css';
 import { range } from 'd3-array';
 import { select as d3Select } from 'd3-selection';
 import { drag as d3Drag } from 'd3-drag';
-import { findIntersection, result as intersection, ii } from '../src';
+import { findIntersection, result as intersection } from '../src';
+
+declare global {
+  interface Window {
+    findIntersection?: typeof findIntersection;
+    intersection?: typeof intersection;
+  }
+}
 
 window.findIntersection = findIntersection;
 window.intersection = intersection;
-window.ii = ii;
+
+type Point = { x: number; y: number; index: number };
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -21,10 +29,7 @@ const points = new Array(4).fill(0).map((_, i) => {
   };
 });
 
-const drag = d3Drag<SVGCircleElement, { x: number; y: number }>().on(
-  'drag',
-  dragged
-);
+const drag = d3Drag<SVGCircleElement, Point>().on('drag', dragged);
 const svg = d3Select('body')
   .append('svg')
   .attr('width', width)
@@ -66,7 +71,7 @@ const segments = svg
   .attr('x2', (d) => points[d.index + 1].x)
   .attr('y2', (d) => points[d.index + 1].y);
 
-const circles = svg
+svg
   .selectAll('circle')
   .data(points)
   .enter()
@@ -83,11 +88,13 @@ const intersectionPoints = svg
   .enter()
   .append('circle')
   .attr('class', 'intersection')
+  .classed('hidden', true)
   .attr('cx', (d) => d[0])
   .attr('cy', (d) => d[1])
   .attr('r', 5);
 
 function dragged(
+  this: SVGCircleElement,
   { x, y }: { x: number; y: number },
   d: { x: number; y: number; index: number }
 ) {
@@ -117,18 +124,19 @@ function dragged(
     points[3].y
   );
 
-  console.log(points);
-
   intersectionPoints
-    .attr('cx', intersection[0][0])
-    .attr('cy', intersection[0][1]);
+    .data(intersection)
+    .attr('cx', (d) => d[0])
+    .attr('cy', (d) => d[1]);
 
   if (isect === 0) {
+    // no intersection
     intersectionPoints.classed('hidden', true);
   } else if (isect === 1) {
-    console.log('yeah');
+    // 1 intersection point
     intersectionPoints.filter((_, i) => i === 0).classed('hidden', false);
-  } else {
+  } else if (isect === 2) {
+    // 2 intersection points
     intersectionPoints.classed('hidden', false);
   }
 }
