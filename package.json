@@ -1,18 +1,18 @@
 {
-  "name": "typescript-library-starter",
-  "version": "0.0.0",
-  "description": "",
+  "name": "2d-segment-intersection",
+  "version": "0.0.1",
+  "description": "Fast 2d segment intersection following Schneider and Eberly",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ms-fadaei/typescript-library-starter.git"
+    "url": "git+https://github.com/w8r/2d-segment-intersection.git"
   },
-  "homepage": "https://github.com/ms-fadaei/typescript-library-starter",
+  "homepage": "https://github.com/w8r/2d-segment-intersection",
   "license": "MIT",
   "scripts": {
     "dev": "vite --config ./playground/vite.config.ts",
     "generate": "vite --config ./playground/vite.config.ts build",
     "build": "tsc && unbuild",
-    "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
+    "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "test": "vitest --run",
     "test:watch": "vitest --watch",
     "coverage": "vitest run --coverage",
@@ -60,6 +60,7 @@
     "eslint": "8.12.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.0.0",
+    "gh-pages": "^4.0.0",
     "husky": "7.0.4",
     "jsdom": "19.0.0",
     "lint-staged": "12.3.7",
@@ -72,7 +73,7 @@
     "vitest": "0.7.11"
   },
   "bugs": {
-    "url": "https://github.com/ms-fadaei/typescript-library-starter/issues"
+    "url": "https://github.com/w8r/2d-segment-intersection/issues"
   },
   "directories": {
     "test": "tests"

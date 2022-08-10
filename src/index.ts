@@ -16,18 +16,9 @@ export function findIntersection(
   p1y: number,
   d1x: number,
   d1y: number,
-
-  // p0: Point,
-  // d0: Point,
-  // p1: Point,
-  // d1: Point,
   sqrEpsilon = 1e-6
 ): number {
   // segments P0 + s * D0 for s in [0, 1], P1 + t * D1 for t in [0,1]
-  // const [p0x, p0y] = p0;
-  // const [d0x, d0y] = d0;
-  // const [p1x, p1y] = p1;
-  // const [d1x, d1y] = d1;
 
   // adaptation from parametric form to the points
   const vax = d0x - p0x;
