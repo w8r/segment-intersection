@@ -1,59 +1,67 @@
-# Typescript Library Starter
-> JavaScript library starter powered by typescript, unbuild and vite
+# `segment-intersection`
 
-## Pre-packed
+## API
 
-- [Unbuild](https://github.com/unjs/unbuild)
-- [Vite 2](https://github.com/vitejs/vite)
-- [Typescript](https://github.com/microsoft/TypeScript)
-- [Vitest](https://github.com/vitest-dev/vitest)
-- [ESLint](https://github.com/eslint/eslint)
+```ts
+import { intersection, findIntersection } from 'segment-intersection';
 
-## commands
+const isect(x0, y0, x1, y1, x2, y2, x3, y3);
+console.log(isect); // 0, 1 or 2
+console.log(intersection); // [[x, y], [x, y]]
+```
+
+### Benchmark
+
+```
+-  2d-segment-intersection x 12,139,495 ops/sec ±0.81% (88 runs sampled)
+ -  exact-segment-intersect x 1,149,191 ops/sec ±2.38% (89 runs sampled)
+ -  segseg x 5,492,533 ops/sec ±4.01% (86 runs sampled)
+```
 
 ### Run Playground
+
 ```bash
-yarn dev
+npm run dev
 ```
 
 ### Build Playground (preview)
+
 ```bash
-yarn generate
+npm run demo
 ```
 
 ### Build Library
+
 ```bash
-yarn build
+npm run build
 ```
 
 ### Lint
+
 ```bash
-yarn lint
+npm run lint
 ```
 
 ### Test
+
 ```bash
-yarn test
+npm run test
 ```
 
 ### Test + Watch
+
 ```bash
-yarn test:watch
+npm run test:watch
 ```
 
 ### Test + Coverage
-```bash
-yarn coverage
-```
 
-### Release & Publish
 ```bash
-yarn release
+npm run coverage
 ```
-
 
 ## License
 
 [MIT License](./LICENSE)
 
-Copyright (c) Mohammad Saleh Fadaei ([@ms-fadaei](https://github.com/ms-fadaei))
+Copyright (c) Alex Milevski ([@w8r](https://github.com/w8r))
