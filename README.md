@@ -28,7 +28,7 @@ const isect = findIntersection(x0, y0, x1, y1, x2, y2, x3, y3, intersection);
 ### Benchmark
 
 ```
--  2d-segment-intersection x 12,139,495 ops/sec ±0.81% (88 runs sampled)
+-  segment-intersection x 12,139,495 ops/sec ±0.81% (88 runs sampled)
  -  exact-segment-intersect x 1,149,191 ops/sec ±2.38% (89 runs sampled)
  -  segseg x 5,492,533 ops/sec ±4.01% (86 runs sampled)
 ```
