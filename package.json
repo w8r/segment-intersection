@@ -18,7 +18,7 @@
     "coverage": "vitest run --coverage",
     "prepare": "husky install",
     "release": "yarn test && npx standard-version && git push --follow-tags && npm publish --access public",
-    "benchmark": "ts-node-esm tests/bench.ts"
+    "benchmark": "node tests/bench.js"
   },
   "lint-staged": {
     "*.ts": "eslint --fix",
@@ -31,7 +31,7 @@
     "vitest",
     "eslint"
   ],
-  "author": "Mohammad Saleh Fadaei <ms.fadaei1997@gmail.com> (https://twitter.com/ms_fadaei)",
+  "author": "Alex Milevski",
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -43,6 +43,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
     "src",
     "dist"
