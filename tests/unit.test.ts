@@ -136,17 +136,7 @@ describe('segment intersection', () => {
     ).toBe(2);
     // fails due to floating point error
     expect(
-      findIntersection(
-        0,
-        0,
-        1e20,
-        1e-11,
-        1,
-        0,
-        100000000000000020000,
-        1e-12,
-        1e-20
-      )
+      findIntersection(0, 0, 1e20, 1e-11, 1, 0, 100000000000000020000, 1e-12)
     ).toBe(2);
   });
 });

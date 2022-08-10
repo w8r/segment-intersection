@@ -21,13 +21,12 @@ const height = window.innerHeight;
 const resolution = 20;
 const r = 15;
 
-const points = new Array(4).fill(0).map((_, i) => {
-  return {
-    x: round(Math.random() * (width - r * 2), resolution),
-    y: round(Math.random() * (height - r * 2), resolution),
-    index: i,
-  };
-});
+const points = [
+  { x: 280, y: 260, index: 0 },
+  { x: 580, y: 120, index: 1 },
+  { x: 380, y: 130, index: 2 },
+  { x: 580, y: 240, index: 3 },
+];
 
 const drag = d3Drag<SVGCircleElement, Point>().on('drag', dragged);
 const svg = d3Select('body')
@@ -113,6 +112,14 @@ function dragged(
 
   d3Select(this).attr('cx', d.x).attr('cy', d.y);
 
+  highlightIntersections();
+}
+
+function round(p: number, n: number) {
+  return p % n < n / 2 ? p - (p % n) : p + n - (p % n);
+}
+
+function highlightIntersections() {
   const isect = findIntersection(
     points[0].x,
     points[0].y,
@@ -134,13 +141,23 @@ function dragged(
     intersectionPoints.classed('hidden', true);
   } else if (isect === 1) {
     // 1 intersection point
+    intersectionPoints.classed('hidden', true);
     intersectionPoints.filter((_, i) => i === 0).classed('hidden', false);
   } else if (isect === 2) {
     // 2 intersection points
     intersectionPoints.classed('hidden', false);
   }
+  document.getElementById('output')!.innerHTML =
+    isect === 0
+      ? ''
+      : isect === 1
+      ? `${formatPoint(intersection[0])}`
+      : `${formatPoint(intersection[0])},\n${formatPoint(intersection[1])}`;
+  console.log('Intersection: ', isect);
 }
 
-function round(p: number, n: number) {
-  return p % n < n / 2 ? p - (p % n) : p + n - (p % n);
+function formatPoint([x, y]: [number, number]) {
+  return `${x.toFixed(2)}, ${y.toFixed(2)}`;
 }
+
+highlightIntersections();

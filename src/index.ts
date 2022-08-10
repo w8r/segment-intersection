@@ -16,6 +16,7 @@ export function findIntersection(
   p1y: number,
   d1x: number,
   d1y: number,
+  out = result,
   sqrEpsilon = 1e-6
 ): number {
   // segments P0 + s * D0 for s in [0, 1], P1 + t * D1 for t in [0,1]
@@ -47,7 +48,7 @@ export function findIntersection(
     // intersection of lines is not a point on segment P1 + t * D1
     if (t < 0 || t > 1) return 0;
 
-    const res0 = result[0];
+    const res0 = out[0];
     // intersection of lines is a point on each segment
     if (s === 0 || s === 1) {
       // on an endpoint of line segment a
@@ -114,12 +115,12 @@ export function findIntersection(
   }
 
   if (imax > 0) {
-    const res0 = result[0];
+    const res0 = out[0];
     res0[0] = p0x + w0 * vax;
     res0[1] = p0y + w0 * vay;
 
     if (imax === 2) {
-      const res1 = result[1];
+      const res1 = out[1];
       res1[0] = p0x + w1 * vax;
       res1[1] = p0y + w1 * vay;
     }
