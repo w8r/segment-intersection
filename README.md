@@ -1,4 +1,4 @@
-# `segment-intersection`
+# `segment-intersection` ![checks](https://img.shields.io/github/checks-status/w8r/segment-intersection/main) ![npm](https://img.shields.io/npm/v/segment-intersection)
 
 ![Screenshot](playground/screenshot.png)
 
