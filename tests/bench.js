@@ -23,7 +23,7 @@ new benchmark.Suite()
   //   const [seg0, seg1] = segments[Math.floor(Math.random() * segments.length)];
   //   findIntersection(...seg0, ...seg1);
   // })
-  .add(chalk.white('2d-segment-intersection'), () => {
+  .add(chalk.white('segment-intersection'), () => {
     const [seg0, seg1] = segments[Math.floor(Math.random() * segments.length)];
     findIntersection(
       seg0[0],
