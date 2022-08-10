@@ -1,5 +1,7 @@
 # `segment-intersection`
 
+![Screenshot](playground/screenshot.png)
+
 Fast segment 2D intersection, that includes edge cases, such as segments touching points, or one segment being on top of the other.
 
 ## API
