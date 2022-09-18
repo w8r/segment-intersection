@@ -9,7 +9,7 @@ Fast segment 2D intersection, that includes edge cases, such as segments touchin
 ```ts
 import { intersection, findIntersection } from 'segment-intersection';
 
-const isect(x0, y0, x1, y1, x2, y2, x3, y3);
+const isect = findIntersection(x0, y0, x1, y1, x2, y2, x3, y3);
 console.log(isect); // 0, 1 or 2
 console.log(intersection); // [[x, y], [x, y]]
 ```
