@@ -1,0 +1,29 @@
+[package]
+edition = "2021"
+name = "segment-intersection"
+version = "0.1.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+js-sys = "0.3.58"
+log = "0.4.17"
+# rustybuzz = "0.5.1"
+# ttf-parser = "0.15.2"
+# unicode-linebreak = "0.1.2"
+# unicode-vo = "0.1.0"
+wasm-bindgen = "0.2.81"
+wasm-bindgen-console-logger = "0.1.1"
+geo-types = { version = "0.7", default-features = false }
+
+[dependencies.web-sys]
+features = [
+  # 'CanvasRenderingContext2d',
+  # 'Document',
+  # 'Element',
+  # 'HtmlCanvasElement',
+  # 'Window',
+  # "console",
+]
+version = "0.3.58"

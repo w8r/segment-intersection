@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 coverage/*
+wasm/pkg/*
+wasm/target/*
+wasm/Cargo.lock

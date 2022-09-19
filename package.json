@@ -12,6 +12,7 @@
     "dev": "vite --config ./playground/vite.config.ts",
     "demo": "vite --config ./playground/vite.config.ts build",
     "build": "tsc && unbuild",
+    "build:wasm": "cd wasm && wasm-pack build --target web --release",
     "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "test": "vitest --run",
     "test:watch": "vitest --watch",
