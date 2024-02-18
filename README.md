@@ -16,7 +16,7 @@ console.log(intersection); // [[x, y], [x, y]]
 
  - `isect === 0` means the segments do not intersect. 
  - `isect === 1` your intersection point is `intersection[0]`. 
- - `isect === 2` your segments are overlapping and you have 2 intersection points, `intersection[1]` and `intersection[1]`. 
+ - `isect === 2` your segments are overlapping and you have 2 intersection points, `intersection[0]` and `intersection[1]`. 
 
 Also, you can write into an existing array:
 
